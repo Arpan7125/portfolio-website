@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Arpan Mukherjee</title>
+<meta name="description" content="Get in touch with Arpan Mukherjee — Full-Stack Developer"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">AM<span>.</span></a>
+    <div class="nav-pill">
+      <div class="nav-indicator" id="navIndicator"></div>
+      <a href="index.html" class="nav-link" data-page="home">Hey</a>
+      <a href="projects.html" class="nav-link" data-page="projects">Work</a>
+      <a href="about.html" class="nav-link" data-page="about">Story</a>
+      <a href="experience.html" class="nav-link" data-page="experience">Journey</a>
+      <a href="contact.html" class="nav-link active" data-page="contact">Chat</a>
+    </div>
+  </div>
+</nav>
+
+<div class="contact-section">
+  <div class="reveal">
+    <span class="handwritten" style="color:var(--yellow);font-size:1.5rem;display:block;margin-bottom:1rem;">let's connect! 👋</span>
+    <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+    <p class="section-sub" style="margin:0 auto 3rem;">Have a project in mind, a job opportunity, or just want to say hi? I'd love to hear from you.</p>
+  </div>
+
+  <div class="contact-grid">
+    <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Message sent! (Demo)');">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-input" placeholder="John Doe" required/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="john@example.com" required/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <input type="text" class="form-input" placeholder="Spring Boot Internship Opportunity"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell me about your project or opportunity..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Message →</button>
+    </form>
+
+    <div class="contact-info reveal">
+      <div class="info-card">
+        <div class="info-label">Email</div>
+        <div class="info-value"><a href="mailto:arpanmmukherjeee7125@gmail.com">arpanmmukherjeee7125@gmail.com</a></div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Phone</div>
+        <div class="info-value"><a href="tel:+917004761651">+91 7004761651</a></div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">LinkedIn</div>
+        <div class="info-value"><a href="https://linkedin.com/in/arpan-mukherjee" target="_blank">linkedin.com/in/arpan-mukherjee</a></div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">GitHub</div>
+        <div class="info-value"><a href="https://github.com/Arpan7125" target="_blank">github.com/Arpan7125</a></div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Location</div>
+        <div class="info-value">Bangalore, India 🇮🇳</div>
+      </div>
+      <div class="info-card" style="background:var(--yellow-soft);border-color:rgba(245,197,24,.3);">
+        <div class="info-label" style="color:#92400e;">Status</div>
+        <div class="info-value" style="display:flex;align-items:center;gap:.5rem;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;"></span>
+          Available for Opportunities
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2025 Arpan Mukherjee</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/arpan-mukherjee" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Arpan7125" target="_blank">GitHub</a>
+      <a href="mailto:arpanmmukherjeee7125@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

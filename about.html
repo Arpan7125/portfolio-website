@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Arpan Mukherjee</title>
+<meta name="description" content="About Arpan Mukherjee — Education, Skills, and Background"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+.about-photo {
+  width: 200px; height: 200px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--yellow);
+  box-shadow: 0 8px 24px rgba(245,197,24,.15);
+}
+</style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">AM<span>.</span></a>
+    <div class="nav-pill">
+      <div class="nav-indicator" id="navIndicator"></div>
+      <a href="index.html" class="nav-link" data-page="home">Hey</a>
+      <a href="projects.html" class="nav-link" data-page="projects">Work</a>
+      <a href="about.html" class="nav-link active" data-page="about">Story</a>
+      <a href="experience.html" class="nav-link" data-page="experience">Journey</a>
+      <a href="contact.html" class="nav-link" data-page="contact">Chat</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ABOUT HERO -->
+<div class="about-hero">
+  <div class="about-intro reveal">
+    <span class="handwritten" style="color:var(--yellow);margin-bottom:1rem;display:block;">A little bit about me...</span>
+    <h2>I'm Arpan — a developer who loves building <span style="color:var(--yellow)">systems that scale</span></h2>
+    <p>Currently pursuing my <strong>Master of Computer Applications</strong> at CHRIST (Deemed to be University), Bangalore. Previously completed my Bachelor of Computer Applications from Amity University, Raipur.</p>
+    <p>I specialize in <strong>Full-Stack Web Development</strong>, <strong>Systems Programming</strong>, and <strong>AI/Chatbots</strong>. My interests span peer-to-peer networking, Android development, blockchain, and building tools that genuinely help people.</p>
+    <p style="font-family:var(--font-hand);font-size:1.2rem;margin-top:1rem;color:var(--gray);">"Bridging the gap between robust backend systems and pixel-perfect user experiences ✨"</p>
+  </div>
+  <div class="about-aside reveal" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+    <img src="profile.jpg" alt="Arpan Mukherjee" class="about-photo"/>
+    <dl style="width:100%;">
+      <dt>Location</dt>
+      <dd>India 🇮🇳</dd>
+      <dt>Education</dt>
+      <dd>MCA — CHRIST University, Bangalore, Karnataka</dd>
+      <dt>Previous</dt>
+      <dd>BCA — Amity University, Raipur, Chhattisgarh</dd>
+      <dt>Focus Areas</dt>
+      <dd>Full-Stack · P2P Systems · AI · Android</dd>
+      <dt>GitHub</dt>
+      <dd><a href="https://github.com/Arpan7125" target="_blank" style="color:var(--black);text-decoration:none;">@Arpan7125</a></dd>
+    </dl>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-section">
+  <div class="section-header reveal">
+    <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
+    <p class="section-sub">Technologies I use to bring ideas to life.</p>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-category">Languages</div>
+      <div class="skill-items">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Go</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">Kotlin</span>
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-category">Frameworks & Libraries</div>
+      <div class="skill-items">
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">Spring Boot</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Web Audio API</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-category">Mobile</div>
+      <div class="skill-items">
+        <span class="skill-tag">Android Studio</span>
+        <span class="skill-tag">Java / Kotlin Mobile</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-category">Databases & Backend</div>
+      <div class="skill-items">
+        <span class="skill-tag">Supabase</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">PostgreSQL</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-category">Tools & Platforms</div>
+      <div class="skill-items">
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">Azure DevOps</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-category">Specializations</div>
+      <div class="skill-items">
+        <span class="skill-tag">NLP / AI</span>
+        <span class="skill-tag">P2P Networking</span>
+        <span class="skill-tag">Distributed Systems</span>
+        <span class="skill-tag">Blockchain</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION TIMELINE -->
+<section style="max-width:1100px;margin:0 auto;">
+  <div class="section-header reveal">
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div>
+        <div class="timeline-title">Master of Computer Applications</div>
+        <div class="timeline-sub">CHRIST (Deemed to be University), Bangalore, Karnataka</div>
+        <div class="timeline-date">July 2025 – Present</div>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div>
+        <div class="timeline-title">Bachelor of Computer Applications, CGPA: 8.56/10</div>
+        <div class="timeline-sub">Amity University, Raipur, Chhattisgarh</div>
+        <div class="timeline-date">Aug 2022 – Jun 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2025 Arpan Mukherjee</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/arpan-mukherjee" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Arpan7125" target="_blank">GitHub</a>
+      <a href="mailto:arpanmmukherjeee7125@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

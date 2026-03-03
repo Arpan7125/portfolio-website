@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Arpan Mukherjee — Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Arpan Mukherjee — Full-Stack Developer specializing in Spring Boot, React.js, Go, and Cloud-Native Development"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+/* ─── STAGGERED LETTER ANIMATION ───────────────────────────── */
+.name-animated {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif;
+}
+.name-animated .letter {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  animation: stagger-rise 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.name-animated .space {
+  display: inline-block;
+  width: 0.3em;
+}
+@keyframes stagger-rise {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Profile photo */
+.hero-photo {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 4px solid var(--yellow);
+  box-shadow: 0 8px 32px rgba(245,197,24,.2);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeScale 0.7s 0.3s ease-out forwards;
+}
+@keyframes fadeScale {
+  from { opacity:0; transform: scale(0.85); }
+  to   { opacity:1; transform: scale(1); }
+}
+
+/* Hover reveal on name — color fills on hover */
+.name-animated:hover .letter {
+  color: var(--yellow);
+  transition: color 0.15s;
+}
+.name-animated .letter {
+  transition: color 0.3s;
+}
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- Navigation -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">AM<span>.</span></a>
+    <div class="nav-pill">
+      <div class="nav-indicator" id="navIndicator"></div>
+      <a href="index.html" class="nav-link active" data-page="home">Hey</a>
+      <a href="projects.html" class="nav-link" data-page="projects">Work</a>
+      <a href="about.html" class="nav-link" data-page="about">Story</a>
+      <a href="experience.html" class="nav-link" data-page="experience">Journey</a>
+      <a href="contact.html" class="nav-link" data-page="contact">Chat</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+
+    <!-- Profile Photo -->
+    <img src="profile.jpg" alt="Arpan Mukherjee" class="hero-photo"/>
+
+    <div class="hero-badge reveal">
+      <span class="badge-dot"></span>
+      Available for Opportunities
+    </div>
+
+    <!-- Staggered Rise Name Animation -->
+    <h1 class="hero-name" style="margin-bottom:1.5rem;">
+      <span class="line" style="margin-bottom:.5rem;">Howdy! I'm</span>
+      <div class="name-animated big" id="animatedName">
+        <!-- Letters injected by JS -->
+      </div>
+    </h1>
+
+    <p class="hero-tagline reveal delay-2">
+      Your trusted <strong>full-stack developer</strong> who crafts 
+      <span class="highlight">scalable systems</span> with Spring Boot, React.js & Go.
+    </p>
+
+    <div class="hero-note reveal delay-3">
+      <span class="handwritten">Tap this 'tiny' button →</span>
+      <a href="projects.html" class="btn-cta">
+        <span>See My Work</span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- Floating Stats -->
+    <div class="hero-stats reveal delay-4">
+      <div class="stat-bubble">
+        <span class="stat-num">6+</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat-bubble">
+        <span class="stat-num">8.56</span>
+        <span class="stat-label">CGPA</span>
+      </div>
+      <div class="stat-bubble accent-bg">
+        <span class="stat-num">🏆</span>
+        <span class="stat-label">SIH Winner</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative elements -->
+  <div class="hero-deco">
+    <div class="deco-circle c1"></div>
+    <div class="deco-circle c2"></div>
+  </div>
+</section>
+
+<!-- FEATURED WORK PREVIEW -->
+<section class="section-work">
+  <div class="section-header reveal">
+    <h2 class="section-title">Selected <span class="accent">Work</span></h2>
+    <p class="section-sub">Real-world apps. Real users. Real impact.</p>
+  </div>
+
+  <div class="work-grid">
+    <a href="projects.html" class="work-card featured reveal">
+      <div class="work-card-inner">
+        <div class="work-meta">
+          <span class="work-badge winner">🏆 Hackathon Winner</span>
+          <span class="work-num">01</span>
+        </div>
+        <h3 class="work-title">Mining Chatbot 2.0 — AI-Powered Industry Assistant</h3>
+        <p class="work-desc">AI chatbot for the mining industry providing intelligent domain-specific assistance using NLP. Internal Smart India Hackathon winner.</p>
+        <div class="work-tags">
+          <span class="tag">Python</span>
+          <span class="tag">NLP</span>
+          <span class="tag">HTML</span>
+          <span class="tag">AI</span>
+        </div>
+      </div>
+      <div class="work-arrow">↗</div>
+    </a>
+
+    <a href="projects.html" class="work-card reveal">
+      <div class="work-card-inner">
+        <div class="work-meta">
+          <span class="work-num">02</span>
+        </div>
+        <h3 class="work-title">Upside Down Communicator</h3>
+        <p class="work-desc">Stranger Things-inspired tactical communication system with 6 modes — Morse Code, Christmas Lights, Binary Grid, Audio Waveform, Ancient Glyphs, and Portal Pulse.</p>
+        <div class="work-tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Web Audio API</span>
+        </div>
+      </div>
+      <div class="work-arrow">↗</div>
+    </a>
+
+    <a href="projects.html" class="work-card reveal">
+      <div class="work-card-inner">
+        <div class="work-meta">
+          <span class="work-num">03</span>
+        </div>
+        <h3 class="work-title">Procto — Proctoring Platform</h3>
+        <p class="work-desc">Advanced proctoring platform for secure online examination monitoring with glassmorphism UI and robust authentication.</p>
+        <div class="work-tags">
+          <span class="tag">TypeScript</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">React</span>
+          <span class="tag">Supabase</span>
+        </div>
+      </div>
+      <div class="work-arrow">↗</div>
+    </a>
+  </div>
+
+  <div class="section-cta reveal">
+    <a href="projects.html" class="btn-secondary">View All Projects →</a>
+  </div>
+</section>
+
+<!-- SKILLS MARQUEE -->
+<div class="marquee-section reveal">
+  <div class="marquee-track">
+    <span class="marquee-item">Spring Boot</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">React.js</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Go</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Python</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Docker</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Next.js</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">TypeScript</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Android</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">NLP / AI</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Supabase</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">P2P Networking</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Web Audio API</span><span class="marquee-dot">●</span>
+    <!-- duplicate -->
+    <span class="marquee-item">Spring Boot</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">React.js</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Go</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Python</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Docker</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Next.js</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">TypeScript</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Android</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">NLP / AI</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Supabase</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">P2P Networking</span><span class="marquee-dot">●</span>
+    <span class="marquee-item">Web Audio API</span><span class="marquee-dot">●</span>
+  </div>
+</div>
+
+<!-- QUICK CONNECT -->
+<section class="section-connect">
+  <div class="connect-inner reveal">
+    <span class="handwritten big-hand">Let's build something great together!</span>
+    <a href="contact.html" class="btn-connect">
+      <span>Connect</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2025 Arpan Mukherjee</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/arpan-mukherjee" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Arpan7125" target="_blank">GitHub</a>
+      <a href="mailto:arpanmmukherjeee7125@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+<script>
+// ── STAGGERED LETTER NAME ANIMATION ──────────────────────────
+(function() {
+  const name = "Arpan Mukherjee";
+  const container = document.getElementById('animatedName');
+  if (!container) return;
+
+  name.split('').forEach((char, i) => {
+    if (char === ' ') {
+      const sp = document.createElement('span');
+      sp.className = 'space';
+      container.appendChild(sp);
+    } else {
+      const span = document.createElement('span');
+      span.className = 'letter';
+      span.textContent = char;
+      span.style.animationDelay = (0.5 + i * 0.05) + 's';
+      container.appendChild(span);
+    }
+  });
+})();
+</script>
+</body>
+</html>
