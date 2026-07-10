@@ -7,6 +7,14 @@
 <meta name="description" content="About Arpan Mukherjee — Education, Skills, and Background"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
+<!-- Three.js via CDN -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js"
+  }
+}
+</script>
 <style>
 .about-photo {
   width: 200px; height: 200px;
@@ -63,7 +71,16 @@
   </div>
 </div>
 
-<!-- SKILLS -->
+<!-- SKILLS SPHERE (Three.js) -->
+<div class="skills-sphere-section reveal" style="max-width:1100px;margin:0 auto;padding:0 4rem 4rem;">
+  <div class="section-header" style="margin-bottom:2rem;">
+    <h2 class="section-title">Skills <span class="accent">Sphere</span></h2>
+    <p class="section-sub">Hover a node to see the skill, click to jump to that category below.</p>
+  </div>
+  <div id="skills-sphere-container"></div>
+</div>
+
+<!-- SKILLS GRID -->
 <div class="skills-section">
   <div class="section-header reveal">
     <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
@@ -71,7 +88,7 @@
   </div>
 
   <div class="skills-grid">
-    <div class="skill-card reveal">
+    <div class="skill-card reveal card-3d">
       <div class="skill-category">Languages</div>
       <div class="skill-items">
         <span class="skill-tag">Python</span>
@@ -84,7 +101,7 @@
         <span class="skill-tag">CSS3</span>
       </div>
     </div>
-    <div class="skill-card reveal">
+    <div class="skill-card reveal card-3d">
       <div class="skill-category">Frameworks & Libraries</div>
       <div class="skill-items">
         <span class="skill-tag">React.js</span>
@@ -94,14 +111,14 @@
         <span class="skill-tag">Web Audio API</span>
       </div>
     </div>
-    <div class="skill-card reveal">
+    <div class="skill-card reveal card-3d">
       <div class="skill-category">Mobile</div>
       <div class="skill-items">
         <span class="skill-tag">Android Studio</span>
         <span class="skill-tag">Java / Kotlin Mobile</span>
       </div>
     </div>
-    <div class="skill-card reveal">
+    <div class="skill-card reveal card-3d">
       <div class="skill-category">Databases & Backend</div>
       <div class="skill-items">
         <span class="skill-tag">Supabase</span>
@@ -110,7 +127,7 @@
         <span class="skill-tag">PostgreSQL</span>
       </div>
     </div>
-    <div class="skill-card reveal">
+    <div class="skill-card reveal card-3d">
       <div class="skill-category">Tools & Platforms</div>
       <div class="skill-items">
         <span class="skill-tag">Docker</span>
@@ -119,7 +136,7 @@
         <span class="skill-tag">Azure DevOps</span>
       </div>
     </div>
-    <div class="skill-card reveal">
+    <div class="skill-card reveal card-3d">
       <div class="skill-category">Specializations</div>
       <div class="skill-items">
         <span class="skill-tag">NLP / AI</span>
@@ -165,6 +182,9 @@
   </div>
 </footer>
 
+<script type="module" src="js/three-skills.js"></script>
+<script type="module" src="js/tilt-cards.js"></script>
+<script type="module" src="js/parallax-scroll.js"></script>
 <script src="scripts.js"></script>
 </body>
 </html>

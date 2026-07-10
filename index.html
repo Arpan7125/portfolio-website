@@ -7,6 +7,14 @@
 <meta name="description" content="Portfolio of Arpan Mukherjee — Full-Stack Developer specializing in Spring Boot, React.js, Go, and Cloud-Native Development"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
+<!-- Three.js via CDN -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js"
+  }
+}
+</script>
 <style>
 /* ─── STAGGERED LETTER ANIMATION ───────────────────────────── */
 .name-animated {
@@ -58,6 +66,9 @@
 </style>
 </head>
 <body>
+
+<!-- Three.js Hero Canvas -->
+<canvas id="hero-canvas"></canvas>
 
 <!-- Custom Cursor -->
 <div id="cursor-dot"></div>
@@ -113,15 +124,15 @@
 
     <!-- Floating Stats -->
     <div class="hero-stats reveal delay-4">
-      <div class="stat-bubble">
+      <div class="stat-bubble card-3d">
         <span class="stat-num">6+</span>
         <span class="stat-label">Projects</span>
       </div>
-      <div class="stat-bubble">
+      <div class="stat-bubble card-3d">
         <span class="stat-num">8.56</span>
         <span class="stat-label">CGPA</span>
       </div>
-      <div class="stat-bubble accent-bg">
+      <div class="stat-bubble accent-bg card-3d">
         <span class="stat-num">🏆</span>
         <span class="stat-label">SIH Winner</span>
       </div>
@@ -143,7 +154,7 @@
   </div>
 
   <div class="work-grid">
-    <a href="projects.html" class="work-card featured reveal">
+    <a href="projects.html" class="work-card featured reveal card-3d">
       <div class="work-card-inner">
         <div class="work-meta">
           <span class="work-badge winner">🏆 Hackathon Winner</span>
@@ -161,7 +172,7 @@
       <div class="work-arrow">↗</div>
     </a>
 
-    <a href="projects.html" class="work-card reveal">
+    <a href="projects.html" class="work-card reveal card-3d">
       <div class="work-card-inner">
         <div class="work-meta">
           <span class="work-num">02</span>
@@ -178,7 +189,7 @@
       <div class="work-arrow">↗</div>
     </a>
 
-    <a href="projects.html" class="work-card reveal">
+    <a href="projects.html" class="work-card reveal card-3d">
       <div class="work-card-inner">
         <div class="work-meta">
           <span class="work-num">03</span>
@@ -254,6 +265,9 @@
   </div>
 </footer>
 
+<script type="module" src="js/three-hero.js"></script>
+<script type="module" src="js/tilt-cards.js"></script>
+<script type="module" src="js/parallax-scroll.js"></script>
 <script src="scripts.js"></script>
 <script>
 // ── STAGGERED LETTER NAME ANIMATION ──────────────────────────
