@@ -696,15 +696,104 @@ footer {
 /* ─── SCROLL REVEAL ─────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(32px) perspective(900px) rotateX(6deg);
   transition:
     opacity 0.8s var(--transition),
     transform 0.8s var(--transition);
 }
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) perspective(900px) rotateX(0deg) rotateY(0deg);
 }
+
+/* ─── 3D TILT UTILS ──────────────────────────────────────────── */
+.tilt3d {
+  --rx: 0deg;
+  --ry: 0deg;
+  --tz: 0px;
+  --hx: 50%;
+  --hy: 50%;
+  --active: 0;
+
+  transform-style: preserve-3d;
+  perspective: 900px;
+  will-change: transform;
+
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz));
+  transition:
+    transform 220ms var(--transition),
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+/* Gloss + rim for depth (pointer-driven) */
+.tilt3d::before,
+.tilt3d::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: calc(0.75 * var(--active));
+}
+
+.tilt3d::before {
+  background:
+    radial-gradient(
+      280px circle at var(--hx) var(--hy),
+      rgba(245, 197, 24, 0.22) 0%,
+      rgba(245, 197, 24, 0.10) 24%,
+      rgba(245, 197, 24, 0.0) 55%
+    );
+  transform: translateZ(20px);
+  mix-blend-mode: multiply;
+}
+
+.tilt3d::after {
+  border: 1px solid rgba(245, 197, 24, 0.28);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.0) 55%
+    );
+  opacity: calc(0.35 * var(--active));
+  transform: translateZ(5px);
+}
+
+/* Hero circles subtle 3D parallax */
+.hero {
+  perspective: 1000px;
+}
+
+.deco-circle {
+  transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  transform-origin: center;
+  transition: transform 120ms linear;
+}
+
+.deco-circle.c1 {
+  transform: translateZ(30px) translateY(calc(var(--scrollT, 0) * -16px));
+}
+
+.deco-circle.c2 {
+  transform: translateZ(16px) translateY(calc(var(--scrollT, 0) * 10px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt3d {
+    transform: none !important;
+    transition: none !important;
+  }
+  .tilt3d::before,
+  .tilt3d::after {
+    display: none;
+  }
+  .reveal {
+    transform: translateY(0) !important;
+  }
+}
+
 .delay-1 {
   transition-delay: 0.1s;
 }
