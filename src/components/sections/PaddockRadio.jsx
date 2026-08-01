@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import SectionHeading from '../SectionHeading';
-import { channels, contactEmail } from '../../data/profile';
+import MediaBackdrop from '../MediaBackdrop';
+import { channels, contactEmail, media } from '../../data/profile';
 import { useGsapReveal } from '../../hooks/useGsapReveal';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
@@ -68,7 +69,14 @@ export default function PaddockRadio() {
     'mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-muted';
 
   return (
-    <section id="radio" ref={ref} className="mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28">
+    <section
+      id="radio"
+      ref={ref}
+      className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28"
+    >
+      <MediaBackdrop {...media.radio} />
+
+      <div className="relative z-10">
       <SectionHeading
         kicker="PADDOCK RADIO"
         title="Open a"
@@ -201,6 +209,7 @@ export default function PaddockRadio() {
             Opens your mail client addressed to {contactEmail}. Nothing is sent to a third party.
           </p>
         </form>
+      </div>
       </div>
     </section>
   );

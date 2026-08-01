@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import SectionHeading from '../SectionHeading';
-import { projects } from '../../data/profile';
+import MediaBackdrop from '../MediaBackdrop';
+import { projects, media } from '../../data/profile';
 import { useGsapReveal } from '../../hooks/useGsapReveal';
 import { useCoarsePointer } from '../../hooks/useReducedMotion';
 
@@ -142,18 +143,27 @@ export default function RaceResults() {
   useGsapReveal(ref, { stagger: 0.07 });
 
   return (
-    <section id="results" ref={ref} className="mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28">
-      <SectionHeading
-        kicker="RACE RESULTS"
-        title="Classified"
-        accent="Finishers"
-        sub={`${projects.length} builds classified. Flip a card for telemetry and the repository.`}
-      />
+    <section
+      id="results"
+      ref={ref}
+      className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28"
+    >
+      <MediaBackdrop {...media.results} />
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, i) => (
-          <ResultCard key={p.name} project={p} position={i + 1} coarse={coarse} />
-        ))}
+      {/* z-10 keeps content above the positioned backdrop layer */}
+      <div className="relative z-10">
+        <SectionHeading
+          kicker="RACE RESULTS"
+          title="Classified"
+          accent="Finishers"
+          sub={`${projects.length} builds classified. Flip a card for telemetry and the repository.`}
+        />
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((p, i) => (
+            <ResultCard key={p.name} project={p} position={i + 1} coarse={coarse} />
+          ))}
+        </div>
       </div>
     </section>
   );

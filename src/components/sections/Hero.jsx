@@ -1,7 +1,8 @@
 import { Suspense, lazy, useRef } from 'react';
 import RevCounter from '../RevCounter';
 import HeroCar from '../HeroCar';
-import { driver } from '../../data/profile';
+import MediaBackdrop from '../MediaBackdrop';
+import { driver, media } from '../../data/profile';
 import { useReducedMotion, useCoarsePointer } from '../../hooks/useReducedMotion';
 
 const Sparks = lazy(() => import('../Sparks'));
@@ -20,6 +21,8 @@ export default function Hero({ onStartRace }) {
       ref={ref}
       className="relative flex min-h-[calc(100svh-2.5rem)] items-center overflow-hidden pb-24 pt-16"
     >
+      <MediaBackdrop {...media.hero} />
+
       {/* Headlight beams cutting diagonally across the tarmac */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div

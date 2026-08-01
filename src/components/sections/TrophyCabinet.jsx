@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import SectionHeading from '../SectionHeading';
-import { trophies } from '../../data/profile';
+import MediaBackdrop from '../MediaBackdrop';
+import { trophies, media } from '../../data/profile';
 import { useGsapReveal } from '../../hooks/useGsapReveal';
 
 export default function TrophyCabinet() {
@@ -8,7 +9,14 @@ export default function TrophyCabinet() {
   useGsapReveal(ref, { stagger: 0.08 });
 
   return (
-    <section id="trophies" ref={ref} className="mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28">
+    <section
+      id="trophies"
+      ref={ref}
+      className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28"
+    >
+      <MediaBackdrop {...media.trophies} />
+
+      <div className="relative z-10">
       <SectionHeading
         kicker="TROPHY CABINET"
         title="Podium"
@@ -52,6 +60,7 @@ export default function TrophyCabinet() {
             </article>
           );
         })}
+      </div>
       </div>
     </section>
   );

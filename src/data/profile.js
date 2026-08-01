@@ -402,6 +402,28 @@ export const channels = [
 
 export const contactEmail = 'arpanmmukherjeee7125@gmail.com';
 
+/**
+ * Photo / video backdrops. Every value is null until a file exists in
+ * public/media/ — MediaBackdrop renders nothing for a null pair, so the site
+ * looks exactly as it does now and makes zero failed requests.
+ *
+ * To switch one on, drop the file in public/media/ and set the path, e.g.
+ *   hero: { video: 'media/hero-track.mp4', poster: 'media/hero-track.jpg', opacity: 0.28 }
+ *
+ * Licensing: use only footage you own or that carries a free commercial
+ * licence (Pexels / Pixabay / Unsplash). Official F1 broadcast footage, press
+ * photography and sponsor-bearing team liveries are copyrighted — see
+ * public/media/README.md.
+ */
+export const media = {
+  hero: { video: null, poster: null, opacity: 0.26, scrim: 'radial' },
+  // No calendar entry: that section is pinned by ScrollTrigger and an extra
+  // absolutely-positioned layer inside the pin container skews its measurements.
+  results: { video: null, poster: null, opacity: 0.14, scrim: 'flat' },
+  trophies: { video: null, poster: null, opacity: 0.16, scrim: 'flat' },
+  radio: { video: null, poster: null, opacity: 0.14, scrim: 'flat' },
+};
+
 export const sections = [
   { id: 'hero', label: 'Grid' },
   { id: 'driver', label: 'Driver' },
