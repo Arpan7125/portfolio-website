@@ -5,6 +5,14 @@ import { projects, media } from '../../data/profile';
 import { useGsapReveal } from '../../hooks/useGsapReveal';
 import { useCoarsePointer } from '../../hooks/useReducedMotion';
 
+/** '2026-07-24' -> 'JUL 2026'. Dates come from each repo's last push. */
+function formatRunDate(iso) {
+  const d = new Date(`${iso}T00:00:00`);
+  return d
+    .toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })
+    .toUpperCase();
+}
+
 function ResultCard({ project, position, coarse }) {
   const [flipped, setFlipped] = useState(false);
   const podium = position <= 3;
@@ -48,6 +56,11 @@ function ResultCard({ project, position, coarse }) {
             <p className="mt-1 font-heading text-sm font-semibold uppercase tracking-wider text-teal">
               {project.subtitle}
             </p>
+            {project.updated && (
+              <p className="mt-1.5 font-mono text-[10px] tracking-[0.14em] text-white/35">
+                LAST RUN · {formatRunDate(project.updated)}
+              </p>
+            )}
           </div>
 
           <div>

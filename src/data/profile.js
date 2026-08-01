@@ -1,7 +1,43 @@
 /**
  * Single source of truth for every piece of portfolio content.
  * Sections read from here — nothing is hardcoded in JSX.
+ *
+ * Anything that depends on today's date is derived, not typed in, so the
+ * site does not quietly go stale on 1 January.
  */
+
+const CAREER_START_YEAR = 2022;
+const now = new Date();
+
+export const currentYear = now.getFullYear();
+
+/** Seasons raced: 2022 counts as season 1. */
+export const seasonsRaced = currentYear - CAREER_START_YEAR + 1;
+
+/**
+ * Human span for a stint. `to: null` means still running.
+ *   spanLabel(2022, 2025) -> '2022 — 2025'
+ *   spanLabel(2025, null) -> '2025 — Present'
+ */
+function spanLabel(from, to) {
+  if (!to) return `${from} — Present`;
+  return from === to ? String(from) : `${from} — ${to}`;
+}
+
+/**
+ * Elapsed years, not calendar years touched: a 2022 — 2025 degree is three
+ * years, not four. A single-year stint (from === to) counts as one.
+ */
+function spanYears(from, to) {
+  if (to === from) return 1;
+  return Math.max(1, (to ?? currentYear) - from);
+}
+
+/** '3 seasons' / '1 season'. */
+function spanSeasons(from, to) {
+  const n = spanYears(from, to);
+  return `${n} season${n === 1 ? '' : 's'}`;
+}
 
 export const driver = {
   name: 'ARPAN MUKHERJEE',
@@ -14,18 +50,11 @@ export const driver = {
   flagCode: 'IN',
   team: 'Team CHRIST MCA',
   secondTeam: 'The Flying Panda',
-  careerStart: '2022-01-01T00:00:00',
-  currentLap: '2026',
+  careerStart: `${CAREER_START_YEAR}-01-01T00:00:00`,
+  currentLap: String(currentYear),
   gapToLeader: 'Always learning…',
   photo: 'profile.jpg',
 };
-
-export const stats = [
-  { label: 'Languages', value: 7 },
-  { label: 'Projects', value: 15 },
-  { label: 'Hackathons Won', value: 1 },
-  { label: 'Papers Published', value: 1 },
-];
 
 /** Race engineer's notes — how the driver actually works. */
 export const engineerNotes = [
@@ -103,13 +132,13 @@ export const trophies = [
   {
     icon: '💰',
     title: 'JP Morgan Chase — Advanced Software Engineering',
-    detail: 'Forage virtual experience on the Midas financial platform and its transaction pipeline.',
+    detail: 'Forage virtual experience on the Midas financial platform and its transaction pipeline. Completed January 2026.',
     accent: 'teal',
   },
   {
     icon: '🎓',
     title: 'BCA — CGPA 8.56',
-    detail: 'Amity University, Raipur. 2022 — 2025.',
+    detail: 'Amity University, Raipur. 2022 — 2025, three seasons.',
     accent: 'red',
   },
 ];
@@ -136,32 +165,65 @@ export const compoundLegend = [
   { compound: 'hard', name: 'Hard', meaning: 'Fundamentals' },
 ];
 
+/**
+ * The season calendar runs in chronological order, so R01 is genuinely the
+ * first round. `from`/`to` drive the period, duration and status labels —
+ * `to: null` means the stint is still running.
+ */
 export const calendar = [
   {
-    round: 'R01',
+    city: 'Raipur',
+    country: 'India',
+    flagCode: 'IN',
+    venue: 'Amity University',
+    role: 'Bachelor of Computer Applications',
+    from: 2022,
+    to: 2025,
+    result: 'CGPA 8.56',
+    notes: [
+      'Graduated with a CGPA of 8.56 across three years',
+      'Foundation in data structures, algorithms, networks and databases',
+      'Built the first shipped projects — Android, P2P systems and web platforms',
+    ],
+  },
+  {
+    city: 'Bilaspur',
+    country: 'India',
+    flagCode: 'IN',
+    venue: 'South Eastern Coalfields Ltd. (SECL)',
+    role: 'Industrial Intern',
+    from: 2024,
+    to: 2024,
+    result: 'CLASSIFIED',
+    notes: [
+      'Industrial training inside a large-scale public sector mining operation',
+      'Ran during the third year of the BCA, alongside coursework',
+      'Exposure to the operational data flows that later shaped Mining Chatbot 2.0',
+    ],
+  },
+  {
     city: 'Bengaluru',
     country: 'India',
     flagCode: 'IN',
     venue: 'CHRIST University',
     role: 'Master of Computer Applications',
-    period: '2025 — 2027',
-    status: 'IN PROGRESS',
+    from: 2025,
+    to: 2027,
     notes: [
       'Postgraduate coursework in advanced software engineering and distributed systems',
-      'Internal Smart India Hackathon winner — Mining Chatbot 2.0, an NLP assistant for mining operations',
+      'Internal Smart India Hackathon winner in 2025 — Mining Chatbot 2.0, an NLP assistant for mining operations',
       'Research paper published alongside coursework',
       'Where the Procto proctoring platform grew from a course project into its third iteration',
     ],
   },
   {
-    round: 'R02',
     city: 'London',
     country: 'United Kingdom',
     flagCode: 'GB',
     venue: 'The Flying Panda',
     role: 'Business Systems Analyst Intern',
-    period: '2025 — Present',
-    status: 'RUNNING',
+    from: 2025,
+    to: null,
     notes: [
       'Designed the CRM data schema underpinning customer records and pipeline stages',
       'Ran an Agile backlog with MoSCoW prioritisation across delivery cycles',
@@ -169,36 +231,18 @@ export const calendar = [
       'First role where requirements analysis mattered as much as the code that followed',
     ],
   },
-  {
-    round: 'R03',
-    city: 'Bilaspur',
-    country: 'India',
-    flagCode: 'IN',
-    venue: 'South Eastern Coalfields Ltd. (SECL)',
-    role: 'Industrial Intern',
-    period: '2024',
-    status: 'CLASSIFIED',
-    notes: [
-      'Industrial training inside a large-scale public sector mining operation',
-      'Exposure to the operational data flows that later shaped Mining Chatbot 2.0',
-    ],
-  },
-  {
-    round: 'R04',
-    city: 'Raipur',
-    country: 'India',
-    flagCode: 'IN',
-    venue: 'Amity University',
-    role: 'Bachelor of Computer Applications',
-    period: '2022 — 2025',
-    status: 'CGPA 8.56',
-    notes: [
-      'Graduated with a CGPA of 8.56',
-      'Foundation in data structures, algorithms, networks and databases',
-      'Built the first shipped projects — Android, P2P systems and web platforms',
-    ],
-  },
-];
+].map((stop, i) => ({
+  ...stop,
+  round: `R${String(i + 1).padStart(2, '0')}`,
+  period: spanLabel(stop.from, stop.to),
+  duration: spanSeasons(stop.from, stop.to),
+  status:
+    stop.to === null
+      ? 'RUNNING'
+      : stop.to > currentYear
+        ? `YEAR ${currentYear - stop.from + 1} OF ${spanYears(stop.from, stop.to)}`
+        : (stop.result ?? 'CLASSIFIED'),
+}));
 
 export const standings = [
   {
@@ -247,6 +291,7 @@ export const projects = [
   {
     medal: '🥇',
     name: 'Mining Chatbot 2.0',
+    updated: '2023-09-25',
     subtitle: 'AI-Powered Industry Assistant',
     badge: 'SIH 2025 WINNER',
     fastestLap: true,
@@ -257,6 +302,7 @@ export const projects = [
   },
   {
     name: 'PROCTO 3.0',
+    updated: '2026-03-04',
     subtitle: 'Secure Proctoring Platform',
     blurb:
       'Online examination monitoring platform with hardened authentication, session integrity checks and a containerised deployment path. Third iteration of the Procto line.',
@@ -265,8 +311,8 @@ export const projects = [
   },
   {
     name: 'CyberSentinel',
+    updated: '2026-07-24',
     subtitle: 'Security Tooling Platform',
-    badge: 'LATEST',
     needsCopy: true,
     blurb:
       'Full-stack security project split into a separate backend and frontend and brought up together through Docker Compose. The most recently active build on the grid.',
@@ -275,6 +321,7 @@ export const projects = [
   },
   {
     name: 'CloudSentinel-Z3',
+    updated: '2026-06-15',
     subtitle: 'Cloud Monitoring Service',
     needsCopy: true,
     blurb:
@@ -285,6 +332,7 @@ export const projects = [
   },
   {
     name: 'Rayeva-AI',
+    updated: '2026-02-27',
     subtitle: 'AI Application',
     needsCopy: true,
     blurb:
@@ -294,6 +342,7 @@ export const projects = [
   },
   {
     name: 'AIML',
+    updated: '2026-07-28',
     subtitle: 'Machine Learning Coursework',
     needsCopy: true,
     blurb:
@@ -303,6 +352,7 @@ export const projects = [
   },
   {
     name: 'DevOps Pipeline',
+    updated: '2026-06-08',
     subtitle: 'CI/CD & Automation',
     needsCopy: true,
     blurb:
@@ -312,6 +362,7 @@ export const projects = [
   },
   {
     name: 'VC Sourcing App',
+    updated: '2026-02-21',
     subtitle: 'Deal Flow Tooling',
     needsCopy: true,
     blurb:
@@ -321,6 +372,7 @@ export const projects = [
   },
   {
     name: 'Car-App',
+    updated: '2026-02-27',
     subtitle: 'Native Android',
     needsCopy: true,
     blurb:
@@ -338,6 +390,7 @@ export const projects = [
   },
   {
     name: 'P2P Academic Platform',
+    updated: '2026-03-27',
     subtitle: 'Decentralised Resource Sharing',
     blurb:
       'Peer-to-peer academic library written in Go. Students transfer resources directly between nodes with no central server holding the files.',
@@ -354,6 +407,7 @@ export const projects = [
   },
   {
     name: 'Upside Down Communicator',
+    updated: '2026-02-07',
     subtitle: 'Tactical Cipher System',
     fastestLap: true,
     blurb:
@@ -363,6 +417,7 @@ export const projects = [
   },
   {
     name: 'Revelation',
+    updated: '2026-02-06',
     subtitle: 'Native Android Application',
     blurb:
       'Native Android app built in Android Studio, applying modern UI patterns and a structured app architecture on the mobile stack.',
@@ -371,12 +426,36 @@ export const projects = [
   },
   {
     name: 'JPMC Forage — Midas',
+    updated: '2026-01-30',
     subtitle: 'Advanced Software Engineering',
     blurb:
       'JP Morgan Chase Advanced Software Engineering virtual experience, working the Midas financial platform and its transaction processing pipeline.',
     stack: ['Software Engineering', 'Finance'],
     github: 'https://github.com/Arpan7125/forage-midas',
   },
+];
+
+/**
+ * Stamp the newest repo with a LATEST badge, derived from `updated` so it
+ * follows your actual activity instead of needing to be moved by hand.
+ */
+const newestUpdate = projects.reduce(
+  (max, p) => (p.updated && p.updated > max ? p.updated : max),
+  ''
+);
+for (const p of projects) {
+  if (p.updated && p.updated === newestUpdate) p.badge ??= 'LATEST';
+}
+
+/**
+ * Season stats. Counts come from the data itself, so adding a project or a
+ * language updates the driver card without a second edit.
+ */
+export const stats = [
+  { label: 'Seasons Raced', value: seasonsRaced },
+  { label: 'Languages', value: techInventory.find((b) => b.bay === 'Languages').items.length },
+  { label: 'Projects', value: projects.length },
+  { label: 'Hackathons Won', value: 1 },
 ];
 
 export const channels = [

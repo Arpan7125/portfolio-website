@@ -64,8 +64,21 @@ function CircuitStop({ stop, index, horizontal }) {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-2 px-5 py-3 font-mono text-[11px] tracking-wider">
-        <span className="text-muted">{stop.period}</span>
-        <span className="clip-tab bg-teal/15 px-2 py-0.5 text-teal">{stop.status}</span>
+        <span className="text-muted">
+          {stop.period}
+          <span className="ml-2 text-white/30">· {stop.duration}</span>
+        </span>
+        <span
+          className={`clip-tab px-2 py-0.5 ${
+            stop.to === null
+              ? 'bg-f1-red/20 text-f1-red'
+              : stop.to > new Date().getFullYear()
+                ? 'bg-teal/15 text-teal'
+                : 'bg-white/10 text-white/60'
+          }`}
+        >
+          {stop.status}
+        </span>
       </div>
 
       <p className="px-5 pb-4 font-heading text-sm font-semibold uppercase tracking-wide text-white/70">
