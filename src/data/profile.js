@@ -416,13 +416,28 @@ export const contactEmail = 'arpanmmukherjeee7125@gmail.com';
  * public/media/README.md.
  */
 export const media = {
-  hero: { video: null, poster: null, opacity: 0.26, scrim: 'radial' },
+  hero: {
+    video: 'media/hero-circuit.mp4',
+    poster: 'media/hero-circuit.webp',
+    opacity: 0.26,
+    scrim: 'radial',
+  },
   // No calendar entry: that section is pinned by ScrollTrigger and an extra
   // absolutely-positioned layer inside the pin container skews its measurements.
-  results: { video: null, poster: null, opacity: 0.14, scrim: 'flat' },
-  trophies: { video: null, poster: null, opacity: 0.16, scrim: 'flat' },
-  radio: { video: null, poster: null, opacity: 0.14, scrim: 'flat' },
+  results: { video: null, poster: 'media/results-car.webp', opacity: 0.13, scrim: 'flat' },
+  trophies: { video: null, poster: 'media/trophies-cup.webp', opacity: 0.15, scrim: 'flat' },
+  radio: { video: null, poster: 'media/radio-pitlane.webp', opacity: 0.12, scrim: 'flat' },
 };
+
+/**
+ * Credits for the backdrop media. Not required by the Pexels License, but it
+ * records where each file came from — useful when you swap one out later.
+ *   hero      — "Race circuit with city skyline", Abhilash Venkat
+ *   results   — "Dynamic Red Formula 1 Racing Car on Track", Philipp Fahlbusch
+ *   trophies  — "Golden trophy displayed on colorful race car"
+ *   radio     — "Formula 1 pit lane with garage preparations"
+ * All four: pexels.com, Pexels License (free commercial use, no attribution).
+ */
 
 export const sections = [
   { id: 'hero', label: 'Grid' },
