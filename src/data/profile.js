@@ -289,18 +289,6 @@ export const standings = [
  */
 export const projects = [
   {
-    medal: '🥇',
-    name: 'Mining Chatbot 2.0',
-    updated: '2023-09-25',
-    subtitle: 'AI-Powered Industry Assistant',
-    badge: 'SIH 2023 WINNER',
-    fastestLap: true,
-    blurb:
-      'An AI assistant for the mining industry that answers domain-specific operational queries using natural language processing. Won the Internal Smart India Hackathon.',
-    stack: ['Python', 'NLP', 'AI'],
-    github: 'https://github.com/Arpan7125/chatbot2.0',
-  },
-  {
     name: 'PROCTO 3.0',
     updated: '2026-03-04',
     subtitle: 'Secure Proctoring Platform',
