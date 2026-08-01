@@ -119,7 +119,7 @@ export const trophies = [
   {
     icon: '🥇',
     title: 'Internal Smart India Hackathon — Winner',
-    detail: 'Mining Chatbot 2.0, an NLP assistant for the mining industry. CHRIST University, 2025.',
+    detail: 'Mining Chatbot 2.0, an NLP assistant for the mining industry. Internal round, 2023.',
     accent: 'red',
   },
   {
@@ -182,6 +182,7 @@ export const calendar = [
     result: 'CGPA 8.56',
     notes: [
       'Graduated with a CGPA of 8.56 across three years',
+      'Internal Smart India Hackathon winner in 2023 — Mining Chatbot 2.0, an NLP assistant for mining operations',
       'Foundation in data structures, algorithms, networks and databases',
       'Built the first shipped projects — Android, P2P systems and web platforms',
     ],
@@ -211,7 +212,6 @@ export const calendar = [
     to: 2027,
     notes: [
       'Postgraduate coursework in advanced software engineering and distributed systems',
-      'Internal Smart India Hackathon winner in 2025 — Mining Chatbot 2.0, an NLP assistant for mining operations',
       'Research paper published alongside coursework',
       'Where the Procto proctoring platform grew from a course project into its third iteration',
     ],
@@ -293,7 +293,7 @@ export const projects = [
     name: 'Mining Chatbot 2.0',
     updated: '2023-09-25',
     subtitle: 'AI-Powered Industry Assistant',
-    badge: 'SIH 2025 WINNER',
+    badge: 'SIH 2023 WINNER',
     fastestLap: true,
     blurb:
       'An AI assistant for the mining industry that answers domain-specific operational queries using natural language processing. Won the Internal Smart India Hackathon.',
